@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shahanaz Ahmed Nishi | AI Researcher</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ================= ROOT ================= */
+
+        :root {
+            --bg-main: #0b1220;
+            --bg-card: rgba(255, 255, 255, 0.04);
+            --border-soft: rgba(255, 255, 255, 0.08);
+
+            --accent: #38bdf8;
+            --accent-hover: #0ea5e9;
+            --accent-glow: rgba(56, 189, 248, 0.25);
+
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-main);
+            color: var(--text-primary);
+            display: flex;
+        }
+
+        /* ================= SIDEBAR ================= */
+
+        .sidebar {
+            width: 240px;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            padding: 40px 20px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            border-right: 1px solid var(--border-soft);
+        }
+
+        .sidebar h3 {
+            margin-bottom: 30px;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .sidebar a {
+            display: block;
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 12px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            transition: 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            background: var(--bg-card);
+            color: var(--accent);
+        }
+
+        /* ================= MAIN ================= */
+
+        .main {
+            margin-left: 240px;
+            width: 100%;
+        }
+
+        /* ================= SECTIONS ================= */
+
+        .section {
+            padding: 100px 10%;
+            border-bottom: 1px solid var(--border-soft);
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            padding: 100px 10%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            width: 100%;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .image-wrapper {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            padding: 5px;
+            background: var(--accent);
+            box-shadow: 0 0 40px var(--accent-glow);
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            flex: 1.5;
+        }
+
+        .hero-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-content h3 {
+            font-weight: 400;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        /* Buttons */
+
+        .btn {
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            margin-right: 15px;
+            transition: 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--accent);
+            color: var(--accent);
+        }
+
+        .btn-outline:hover {
+            background: var(--accent);
+            color: #000;
+        }
+
+        /* ================= CARDS ================= */
+
+        .card {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 18px;
+            border: 1px solid var(--border-soft);
+            backdrop-filter: blur(12px);
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px var(--accent-glow);
+        }
+
+        /* ================= RESEARCH TAGS ================= */
+
+        .research-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .research-item {
+            padding: 12px 20px;
+            border-radius: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-soft);
+            color: var(--text-secondary);
+            transition: 0.3s ease;
+        }
+
+        .research-item:hover {
+            background: var(--accent);
+            color: #000;
+        }
+
+        /* ================= PROJECT ================= */
+
+        .project-card {
+            display: flex;
+            gap: 40px;
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 18px;
+            border: 1px solid var(--border-soft);
+            transition: 0.3s ease;
+            backdrop-filter: blur(12px);
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px var(--accent-glow);
+        }
+
+        .project-content h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+        }
+
+        .project-content p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .project-content h4 {
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .tech-stack span {
+            padding: 8px 14px;
+            border-radius: 20px;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            font-size: 0.85rem;
+        }
+
+        .project-links a {
+            margin-right: 20px;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .project-links a:hover {
+            color: white;
+        }
+
+        /* ================= SKILLS ================= */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-soft);
+            border-radius: 18px;
+            padding: 30px;
+            transition: 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px var(--accent-glow);
+        }
+
+        .skill-card h3 {
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tags span {
+            background: rgba(56, 189, 248, 0.08);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            border-radius: 20px;
+            padding: 6px 14px;
+            font-size: 13px;
+        }
+
+        .tags span:hover {
+            background: var(--accent);
+            color: #000;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width: 992px) {
+
+            .sidebar {
+                display: none;
+            }
+
+            .main {
+                margin-left: 0;
+            }
+
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .project-card {
+                flex-direction: column;
+            }
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-soft);
+            border-radius: 18px;
+            padding: 50px;
+            backdrop-filter: blur(12px);
+            display: flex;
+            justify-content: space-between;
+            gap: 60px;
+            transition: 0.3s ease;
+        }
+
+        .contact-card:hover {
+            box-shadow: 0 20px 40px var(--accent-glow);
+        }
+
+        .contact-info {
+            flex: 1.5;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+
+        .contact-info p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .contact-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-item span {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+        }
+
+        .contact-item a {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: white;
+        }
+
+        .contact-item p {
+            font-size: 1.05rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .contact-card {
+                flex-direction: column;
+                padding: 40px;
+            }
+        }
+
+        .contact-item a {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+            position: relative;
+        }
+
+        .contact-item a::after {
+            content: " ↗";
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <h3>Navigation</h3>
+        <a href="#home">Home</a>
+        <a href="#research">Research Interests</a>
+        <a href="#publications">Publications</a>
+        <a href="#ResearchExperience">Research Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <div class="main">
+
+        <section class="hero" id="home">
+            <div class="hero-container">
+                <div class="hero-image">
+                    <div class="image-wrapper">
+                        <img src="profile.jpg" alt="Profile Image">
+                    </div>
+                </div>
+                <div class="hero-content">
+                    <h2>Shahanaz Ahmed Nishi</h2>
+                    <h3>Master’s Student in Computer Engineering | AI Researcher</h3>
+                    <p>
+                        I'm currently working towards my Master of Science in Computer Engineering at Erciyes University
+                        as a recipient of the Turkish Government Scholarship. My research explores deep learning methods
+                        in computer vision, particularly for post-earthquake damage assessment using remote sensing
+                        imagery and explainable AI
+                    </p>
+                    <a href="resume.pdf" class="btn btn-outline">Download CV</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="research">
+            <h2 class="section-title">Research Interests</h2>
+            <div class="research-container">
+                <div class="research-item">Artificial Intelligence</div>
+                <div class="research-item">Deep Learning</div>
+                <div class="research-item">Reinforcement Learning</div>
+                <div class="research-item">Computer Vision</div>
+                <div class="research-item">Remote Sensing Image Analysis</div>
+                <div class="research-item">Explainable Artificial Intelligence (XAI)</div>
+                <div class="research-item">Post-Disaster Damage Assessment</div>
+            </div>
+        </section>
+
+        <section class="section" id="publications">
+            <h2 class="section-title">Publications</h2>
+            <div class="card">
+                <p>
+                    Chowdhury, J. I., Ahmed Nishi, S., Aymon, U., Ahsan, T., Chowdhury, S. A., & Patwary, M. J. A.
+                    (2025).
+                    An approach to ensure public safety using masked face recognition. In Proceedings of the 2nd
+                    International Conference on Big Data, IoT and Machine Learning (BIM 2023) by Taylor & Francis.
+                </p>
+                <br>
+                <a href="https://doi.org/10.1201/9781003605508-11" target="_blank">
+                    DOI: https://doi.org/10.1201/9781003605508-11
+                </a>
+            </div>
+        </section>
+
+        <section class="section" id="ResearchExperience">
+            <h2 class="section-title">Research Experience</h2>
+            <div class="card">
+                <h3>Master’s Thesis: Explainable Deep Learning for Post-Earthquake Building Damage Assessment</h3>
+                <br>
+                <ul style="color: var(--text-secondary); line-height: 1.8;">
+                    <li>Designing a semantic segmentation framework for automated post-earthquake building damage
+                        assessment using high-resolution satellite imagery.
+                    </li>
+                    <li>Leveraging datasets provided by Maxar Technologies to classify damaged and undamaged structures
+                        at pixel level.</li>
+                    <li>Implementing and comparing CNN-based architectures (U-Net variants) and Vision Transformer
+                        models for robust feature extraction and spatial reasoning.</li>
+                    <li>Integrating Explainable AI (XAI) techniques, including Grad-CAM and attention-based
+                        visualization, to analyze model decision mechanisms and improve interpretability.</li>
+                    <li>Evaluating model performance using segmentation metrics (IoU, Dice coefficient,
+                        precision/recall) to ensure reliability for real-world disaster response applications.</li>
+                    <li>Aiming to develop a transparent and scalable AI framework to support emergency response planning
+                        and policy decision-making in earthquake-prone regions.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section" id="projects">
+            <h2 class="section-title">Projects</h2>
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Dreamers University Management System</h3>
+                    <p>
+                        A comprehensive university management system handling all university
+                        activities on a single platform with different access levels for
+                        students, teachers, admin, and employees. Implemented front-end and
+                        back-end using Next.js and integrated real-time communication features.
+                    </p>
+
+                    <h4>Technologies:</h4>
+
+                    <div class="tech-stack">
+                        <span>Next.js</span>
+                        <span>Node.js</span>
+                        <span>Express.js</span>
+                        <span>MongoDB</span>
+                        <span>Firebase</span>
+                        <span>Tailwind CSS</span>
+                        <span>Daisy UI</span>
+                        <span>HTML</span>
+                        <span>CSS</span>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="https://smart-university-protal-3588.vercel.app/" target="_blank">Live Demo</a>
+                        <a href="https://github.com/Shahanaz-Ahmed/self-learning-client-10" target="_blank">GitHub
+                            Client</a>
+                        <a href="https://github.com/Shahanaz-Ahmed/self-learning-server-10" target="_blank">GitHub
+                            Server</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="skills">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+
+                <div class="skill-card">
+                    <h3>Programming</h3>
+                    <div class="tags">
+                        <span>Python</span>
+                        <span>C</span>
+                        <span>C++</span>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>AI & Data Science</h3>
+                    <div class="tags">
+                        <span>PyTorch</span>
+                        <span>TensorFlow</span>
+                        <span>Deep Learning</span>
+                        <span>Computer Vision</span>
+                        <span>Machine Learning</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Web Technologies</h3>
+                    <div class="tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>React</span>
+                        <span>Next.js</span>
+                        <span>Node.js</span>
+                        <span>Express.js</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Tools</h3>
+                    <div class="tags">
+                        <span>Git</span>
+                        <span>Google Colab</span>
+                        <span>VS Code</span>
+                        <span>CVAT</span>
+                        <span>Vercel</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Databases</h3>
+                    <div class="tags">
+                        <span>MongoDB</span>
+                        <span>PhpMyAdmin</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <h2 class="section-title">Contact</h2>
+
+            <div class="contact-card">
+
+                <div class="contact-info">
+                    <h3>Let’s Connect</h3>
+                    <p>
+                        I am open to research collaborations, academic discussions,
+                        and opportunities related to AI, computer vision, and disaster response technologies.
+                    </p>
+                </div>
+
+                <div class="contact-details">
+
+                    <div class="contact-item">
+                        <span>Email</span>
+                        <a href="mailto:asahanaz207@gmail.com">
+                            asahanaz207@gmail.com
+                        </a>
+                    </div>
+
+                    <div class="contact-item">
+                        <span>Location</span>
+                        <p>Kayseri, Turkey</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <span>LinkedIn</span>
+                        <a href="https://www.linkedin.com/in/shahanaz-ahmed-nishi/" target="_blank"
+                            rel="noopener noreferrer">
+                            View Profile
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+
+    </div>
+
+</body>
+
+</html>
